@@ -1,4 +1,4 @@
-/* import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import css from './Navigation.module.css';
 
@@ -12,21 +12,18 @@ export default function Navigation({ isLoggedIn }) {
       <NavLink className={activeLink} to="/">
         Home
       </NavLink>
-      {isLoggedIn && (
-        <NavLink className={activeLink} to="/contacts">
-          Contacts
-        </NavLink>
-      )}
-      {!isLoggedIn && (
-        <>
-          <NavLink className={activeLink} to="/register">
-            Register
-          </NavLink>
-          <NavLink className={activeLink} to="/login">
-            Log In
-          </NavLink>
-        </>
-      )}
+
+      <NavLink className={activeLink} to="/campers">
+        Catalog
+      </NavLink>
+
+      <NavLink className={activeLink} to={`campers/${id}`}>
+        Features
+      </NavLink>
+
+      <NavLink className={activeLink} to={`campers/${id}/reviews`}>
+        Reviews
+      </NavLink>
     </div>
   );
-} */
+}
