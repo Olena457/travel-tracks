@@ -1,13 +1,18 @@
-import React from 'react';
-import ContainerWrapper from './../../components/ContainerWrapper/ContainerWrapper.jsx';
-import Button from '../../components/Button/Button.jsx';
+import AppBar from '../../components/AppBar/AppBar.jsx';
+import FeaturesFavorite from '../../components/FeaturesFavorite/FeaturesFavorite.jsx';
+import GalleryCamperFavorite from '../../components/GalleryCamperFavorite/GalleryCamperFavorite.jsx';
+import GeneralWrapperFavorite from '../../components/GeneralWrapperFavorite/GeneralWrapperFavorite.jsx';
+import ToggleFeaturesReviews from '../../components/Navigation/Navigation.jsx';
 
 const CamperPageFeature = () => {
   return (
     <>
-      <ContainerWrapper>
-        <Button />
-      </ContainerWrapper>
+      <AppBar />
+      <GeneralWrapperFavorite>
+        <GalleryCamperFavorite />
+        <ToggleFeaturesReviews />
+        <FeaturesFavorite />
+      </GeneralWrapperFavorite>
     </>
   );
 };

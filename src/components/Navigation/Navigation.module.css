@@ -1,0 +1,19 @@
+.link {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+  font-size: 16px;
+  display: inline-block;
+  color: #101828;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+}
+/* margin-right: 60px; */
+
+.link.active {
+  padding: 30px 0px;
+  position: relative;
+  color: #d84343;
+}

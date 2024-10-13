@@ -1,0 +1,69 @@
+.container {
+  border: 1px solid #dadde1;
+  padding: 20px;
+  width: 641px;
+  border-radius: 10px;
+  height: 588px;
+}
+.title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 8px;
+}
+.description {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+  margin-bottom: 24px;
+}
+
+.containerName {
+  position: relative;
+}
+.name {
+  width: 400px;
+  height: 56px;
+  margin-bottom: 14px;
+}
+.error {
+  color: #e44848;
+  font-size: 14px;
+  position: absolute;
+  top: 52px;
+  left: 18px;
+}
+.containerEmail {
+  position: relative;
+}
+.email {
+  width: 400px;
+  height: 56px;
+  margin-bottom: 14px;
+}
+.containerDate {
+  position: relative;
+}
+.date {
+  width: 400px;
+  height: 56px;
+  margin-bottom: 14px;
+}
+.calendarIcon {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  cursor: pointer;
+}
+
+.comment {
+  width: 400px;
+  height: 114px;
+  margin-bottom: 24px;
+  resize: none;
+}
+/* calendar size!!!! */

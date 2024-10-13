@@ -1,0 +1,12 @@
+.wrapperCatalog {
+  display: flex;
+  gap: 48px;
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-top: 38px;
+  justify-content: center;
+  overflow-y: auto;
+  max-height: 100vh;
+  padding: 38px 48px 50px 48px;
+}
+/* перглянути padding */

@@ -13,7 +13,7 @@ const HomePage = () => {
           <h2 className={css.description}>
             You can find everything you want in our catalog
             <Link to="/campers">
-              <Button className={css.home}>View Now</Button>
+              <Button className={css.viewNow}>View Now</Button>
             </Link>
           </h2>
         </div>

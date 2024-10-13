@@ -1,0 +1,27 @@
+.wraperItem {
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f7;
+  width: 631px;
+  max-height: 588px;
+  overflow-x: auto;
+  border-radius: 10px;
+  gap: 100px;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 44px;
+  overflow-x: auto;
+}
+.item {
+  border-radius: 100px;
+  padding: 12px 18px;
+  background: #f2f4f7;
+  display: flex;
+  align-items: center;
+}
+.icon {
+  margin-right: 8px;
+}

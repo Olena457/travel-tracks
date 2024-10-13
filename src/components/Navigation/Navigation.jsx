@@ -1,29 +1,31 @@
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { NavLink, useParams } from 'react-router-dom';
 import clsx from 'clsx';
-import css from './Navigation.module.css';
+import css from './ToggleFeaturesReviews.module.css';
 
-export default function Navigation({ isLoggedIn }) {
-  function activeLink({ isActive }) {
-    return clsx(css.link, isActive && css.active);
-  }
+function ToggleFeaturesReviews() {
+  const { id } = useParams();
 
   return (
-    <div className={css.container}>
-      <NavLink className={activeLink} to="/">
-        Home
-      </NavLink>
-
-      <NavLink className={activeLink} to="/campers">
-        Catalog
-      </NavLink>
-
-      <NavLink className={activeLink} to={`campers/${id}`}>
+    <div className={css.containerToggle}>
+      <NavLink
+        className={clsx(css.link, {
+          [css.active]: location.pathname === `/campers/${id}`,
+        })}
+        to={`/campers/${id}`}
+      >
         Features
       </NavLink>
-
-      <NavLink className={activeLink} to={`campers/${id}/reviews`}>
+      <NavLink
+        className={clsx(css.link, {
+          [css.active]: location.pathname === `/campers/${id}/reviews`,
+        })}
+        to={`/campers/${id}/reviews`}
+      >
         Reviews
       </NavLink>
     </div>
   );
 }
+
+export default ToggleFeaturesReviews;

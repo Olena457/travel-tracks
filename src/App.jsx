@@ -10,7 +10,6 @@ const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage.jsx'));
 const CamperPageFeature = lazy(() => import('./pages/CamperPageFeature/CamperPageFeature.jsx'));
 const CamperPageReviews = lazy(() => import('./pages/CamperPageReviews/CamperPageReviews.jsx'));
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotfoundPage.jsx'));
 
 
 function App() {
@@ -24,7 +23,7 @@ function App() {
       <Route path="/campers/:id" element={<CamperPageFeature />}>
             <Route path="reviews" element={<CamperPageReviews />} />
           </Route>
-      <Route path="*" element={<NotFoundPage />} />
+       <Route path="*" element={<HomePage />} />
       </Routes>
       </Suspense>
   <ToastNotification/>

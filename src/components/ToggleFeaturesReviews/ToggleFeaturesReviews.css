@@ -1,0 +1,43 @@
+.containerToggle {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  width: 312px;
+  height: 48;
+  border-bottom: 1px solid #dadde1;
+}
+.containerLink {
+  width: 206px;
+  height: 24px;
+  margin-bottom: 23px;
+}
+.link {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  padding: 8px 16px;
+  position: relative;
+}
+
+.link:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  width: 0;
+  height: 5px;
+  background-color: transparent;
+  transition: width 0.5s;
+}
+/* transparent?? */
+.link:hover:after,
+.link.active:after {
+  content: '';
+  width: 100%;
+  left: 0;
+  bottom: -3px;
+  height: 5px;
+  background-color: #e44848;
+  transition: width 0.5s;
+}

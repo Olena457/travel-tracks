@@ -1,15 +1,15 @@
-/* import { Suspense } from 'react';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import AppB from '../AppB/AppB.jsx';
+import AppBar from '../AppBar/AppBar.jsx';
 import css from './Layout.module.css';
 
 function Layout({ children }) {
   return (
     <div className={css.container}>
-      <AppB />
+      <AppBar />
       <Suspense fallback={null}>{children}</Suspense>
       <Outlet />
     </div>
   );
 }
-export default Layout; */
+export default Layout;
