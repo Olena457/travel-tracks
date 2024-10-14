@@ -1,5 +1,5 @@
 .item {
-  border: 1px solid rgba(16, 24, 40, 0.2);
+  border: 1px solid#DADDE1;
   border-radius: 20px;
   padding: 24px;
   width: 888px;
@@ -82,7 +82,7 @@
   margin-right: 4px;
 }
 
-.aboutCamper {
+.aboutDescription {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 16px;

@@ -1,5 +1,6 @@
-import IconOptions from './../IconOptions/IconOptions';
+import IconOptions from './../IconOptions/IconOptions.jsx';
 import css from './CamperItemOption.module.css';
+
 export const CamperItemOptions = ({ item }) => {
   return (
     <ul className={css.list}>
@@ -11,7 +12,7 @@ export const CamperItemOptions = ({ item }) => {
           className={css.icon}
           fillColor={'#101828'}
         />
-        Refrigerotor
+        Refrigerator
       </li>
 
       <li className={css.item}>
@@ -58,7 +59,7 @@ export const CamperItemOptions = ({ item }) => {
           className={css.icon}
           fillColor={'#101828'}
         />
-        bathroom
+        Bathroom
       </li>
 
       {item.details.airConditioner != 0 && (

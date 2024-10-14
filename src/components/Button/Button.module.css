@@ -35,18 +35,23 @@
   transition: background-color 0.3s ease;
 }
 .viewNow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   font-family: Inter, san-serif;
+  padding: 0 20px;
   width: 173px;
   height: 56px;
   font-size: 16px;
   font-weight: 500;
-  padding: 16px 60px;
   border-radius: 200px;
   line-height: 1.5;
   letter-spacing: -0.005em;
   cursor: pointer;
   color: #fff;
   background: #e44848;
+  margin-top: 35px;
   transition: background-color 0.3s ease;
 }
 

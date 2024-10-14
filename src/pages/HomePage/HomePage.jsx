@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
-import css from './HomePage.css';
-import AppBar from '../../components/AppBar/AppBar.jsx';
+import css from './HomePage.module.css';
 import Button from '../../components/Button/Button.jsx';
 
 const HomePage = () => {
   return (
     <>
-      <AppBar />
       <div className={css.mainContainer}>
         <div className={css.container}>
           <h1 className={css.title}>Campers of your dreams</h1>

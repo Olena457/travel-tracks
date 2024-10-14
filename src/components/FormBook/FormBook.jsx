@@ -5,6 +5,9 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import clsx from 'clsx';
 import IconOptions from '../IconOptions/IconOptions.jsx';
+import { toast } from 'react-hot-toast';
+
+import ToastNotification from '../ToastNotification/ToastNotification.jsx';
 
 const BookSchema = Yup.object().shape({
   username: Yup.string()
@@ -12,15 +15,18 @@ const BookSchema = Yup.object().shape({
     .max(50, 'Too long!')
     .required('Required'),
   date: Yup.date().required('Required'),
-  email: Yup.string().email('Invalid email').required('Required'),
-  comment: Yup.string().min(5, 'Too short!').max(250, 'Too long!'),
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Required'),
+  comment: Yup.string()
+    .min(5, 'Too short!')
+    .max(250, 'Too long!'),
 });
 
 const initialValues = {
   username: '',
   date: '',
   message: '',
-  date: null,
 };
 const DatepickerField = ({ field, form, placeholder, ...props }) => {
   return (
@@ -37,13 +43,18 @@ const DatepickerField = ({ field, form, placeholder, ...props }) => {
 };
 export const FormBook = () => {
   const nameField = useId();
-  const dateField = useId();
+  const dateFieldId = useId();
   const messageField = useId();
+  const emailFieldId = useId();
+
   const handleSubmit = (values, actions) => {
+    toast.success('The order was successfylly created');
     actions.resetForm();
   };
+
   return (
     <div className={css.container}>
+      <ToastNotification />
       <h4 className={css.title}>Book your campervan now</h4>
       <p className={css.description}>
         Stay connected! We are always ready to help you.
@@ -69,7 +80,7 @@ export const FormBook = () => {
             <Field
               type="email"
               name="email"
-              id={emailField}
+              id={emailFieldId}
               placeholder="Email*"
               className={clsx(css.email, css.field)}
             />
@@ -77,13 +88,13 @@ export const FormBook = () => {
           </div>
 
           <div className={css.containerDate}>
-            <label htmlFor={dateField}>
+            <label htmlFor={dateFieldId}>
               <Field
                 type="date"
                 component={DatepickerField}
                 name="date"
-                id={dateField}
-                placeholder="Booking date*"
+                id={dateFieldId}
+                placeholder="Select a date between today"
                 className={clsx(css.date, css.field)}
               />
               <IconOptions
@@ -114,4 +125,3 @@ export const FormBook = () => {
     </div>
   );
 };
-// onClsck!!??

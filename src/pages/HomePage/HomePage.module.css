@@ -1,5 +1,5 @@
-.mainContainer {
-  max-width: 1440px;
+/* .mainContainer {
+  min-width: 100%;
   color: #f7f7f7;
   background-image: url('../../assets/Picture-1.jpg');
   background-position: center center;
@@ -32,4 +32,45 @@
   margin-left: 80px;
   gap: 40px;
   opacity: 0px;
+} */
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 100%;
+  color: #f7f7f7;
+  background-image: url('../../assets/Picture-1.jpg');
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 80px; /* Додаємо відступ для фіксованого хедера */
+}
+
+.title {
+  font-family: Inter;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+}
+
+.description {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+}
+
+.container {
+  display: flex;
+  margin-top: 210px;
+  flex-direction: column;
+  gap: 25px;
+  width: 571px;
+  height: 176px;
+  margin-left: 80px;
 }

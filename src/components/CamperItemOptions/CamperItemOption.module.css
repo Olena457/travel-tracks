@@ -1,0 +1,15 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.item {
+  border-radius: 100px;
+  padding: 12px 18px;
+  background: #f2f4f7;
+  display: flex;
+  align-items: center;
+}
+.icon {
+  margin-right: 8px;
+}

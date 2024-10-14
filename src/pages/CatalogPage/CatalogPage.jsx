@@ -1,14 +1,39 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCampers } from '../../redux/campers/campersSlice.js';
+import css from './CatalogPage.module.css';
 import AppBar from '../../components/AppBar/AppBar.jsx';
 import CatalogList from '../../components/CatalogList/CatalogList.jsx';
 import Loader from '../../components/Loader/Loader.jsx';
 import SideBar from '../../components/SideBar/SideBar.jsx';
+import {
+  selectLoading,
+  selectPage,
+  selectPerPage,
+  selectSortBy,
+  selectSortOrder,
+} from '../../redux/campers/campersSelectors.js';
+import { selectLocation } from '../../redux/filters/filtersSelectors.js';
 
 const CatalogPage = () => {
+  const isLoading = useSelector(selectLoading);
+  const dispatch = useDispatch();
+  const page = useSelector(selectPage);
+  const perPage = useSelector(selectPerPage);
+  const sortBy = useSelector(selectSortBy);
+  const sortOrder = useSelector(selectSortOrder);
+  const location = useSelector(selectLocation);
+  const filter = { location };
+  const params = { page, perPage, sortBy, sortOrder, filter };
+  useEffect(() => {
+    dispatch(fetchCampers(params));
+  }, [dispatch, page, perPage, sortBy, sortOrder]);
+
   return (
     <>
       <AppBar />
       <div className={css.wrapperCatalog}>
-        {isloading ? (
+        {isLoading ? (
           <Loader />
         ) : (
           <>
@@ -53,6 +78,8 @@ export default CatalogPage;
 import axios from 'axios';
 import SideBar from './../../components/SideBar/SideBar';
 import { AppBar } from './../../components/AppBar/AppBar';
+import { selectSortBy } from './../../redux/campers/selectors';
+import { selectLocation } from './../../redux/filters/selectors';
 
 const CatalogPage = () => {
   const [campers, setCampers] = useState([]);

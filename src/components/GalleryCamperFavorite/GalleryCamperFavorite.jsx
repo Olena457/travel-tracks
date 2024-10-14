@@ -1,4 +1,3 @@
-import React from 'react';
 import IconOptions from './../IconOptions/IconOptions';
 import css from './GalleryCamperFavorite.module.css';
 

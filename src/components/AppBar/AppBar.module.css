@@ -1,27 +1,42 @@
-.header {
+/* .header {
   background: #f2f4f7;
   width: 100%;
   display: flex;
   padding: 24px 64px;
   gap: 450px;
   border-bottom: 1px solid #f7f7f7;
+} */
+.header {
+  display: flex;
+  background: #f2f4f7;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 450px;
+  border-bottom: 1px solid #f7f7f7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
-/* justify-content: space-between; */
-/* align-items: center; */
 
 .logoContainer {
   display: flex;
   align-items: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 .logo {
+  margin-left: 50px;
   width: 136px;
   height: 16px;
 }
 .logoTextBlack {
+  font-size: large;
   font-weight: bold;
   color: #101828;
 }
 .logoTextGrey {
+  font-size: large;
   font-weight: bold;
   color: #475467;
 }

@@ -7,5 +7,16 @@ export default defineConfig({
 
   build: {
     sourcemap: true,
+    rollupOptions: {
+      external: ['REAme.md'],
+    },
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+  server: {
+    mimeTypes: {
+      'text/jsx': 'text/javascript',
+    },
   },
 });

@@ -9,8 +9,8 @@
   position: relative;
   cursor: pointer;
   text-decoration: none;
+  margin-right: 32px;
 }
-/* margin-right: 60px; */
 
 .link.active {
   padding: 30px 0px;

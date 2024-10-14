@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import clsx from 'clsx';
 import css from './ToggleFeaturesReviews.module.css';

@@ -1,22 +1,24 @@
-import clsx from clsx;
-import css from './Button.css'
+import clsx from 'clsx';
+import css from './Button.module.css';
+
 const Button = ({ className, children, onClick }) => {
-  const getButton = () => {
-    switch (children) {
-      case 'Search':
+  const getButtonStyle = () => {
+    switch (children.toLowerCase()) {
+      case 'search':
         return css.baseButton;
-      case 'Send':
+      case 'send':
         return css.baseButton;
-      case 'Show More':
+      case 'show more':
         return css.showMore;
-      case 'Load More':
+      case 'load more':
         return css.loadMore;
-      case 'View Now':
+      case 'view now':
         return css.viewNow;
       default:
         return css.baseButton;
     }
   };
+
   return (
     <>
       <button
@@ -28,4 +30,5 @@ const Button = ({ className, children, onClick }) => {
     </>
   );
 };
+
 export default Button;

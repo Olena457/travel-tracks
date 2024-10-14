@@ -1,14 +1,14 @@
 import Navigation from '../Navigation/Navigation.jsx';
-import React from 'react';
 import css from './AppBar.module.css';
-import { ReactComponent as Logo } from '../../../public/Logo.svg';
 
 export const AppBar = () => {
   return (
     <>
       <header className={css.header}>
         <div className={css.logoContainer}>
-          <Logo className={css.logo} />
+          <svg className={css.logo}>
+            <use href="#icon-logo"></use>
+          </svg>
           <span className={css.logoTextBlack}>Travel</span>
           <span className={css.logoTextGrey}>Track</span>
         </div>

@@ -1,10 +1,15 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { CamperItemOptions } from '../CamperItemOptions/CamperItemOptions.jsx';
-import Button from '../Button/Button.jsx';
+import { selectFavoritesId } from '../../redux/campers/campersSelectors.js';
+import { toggleFavorite } from '../../redux/campers/campersSlice.js';
 import css from './CatalogItem.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import IconOptions from './../IconOptions/IconOptions.jsx';
 
 function CatalogItem({ item }) {
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavoritesId);
+  const isFavorite = favorites.indexOf(item._id) === -1 ? false : true;
+
   return (
     <li className={css.item}>
       <img className={css.img} src={item.gallery[0].thumb} alt={item.name} />
@@ -16,9 +21,9 @@ function CatalogItem({ item }) {
               <h3 className={css.price}>€{item.price.toFixed(2)}</h3>
               <button
                 type="button"
-                onClick={() => dispatchEvent(toggleFavorite(item._id))}
+                onClick={() => dispatch(toggleFavorite(item._id))}
               >
-                <Icon
+                <IconOptions
                   id="like"
                   className={css.like}
                   width={24}
@@ -31,7 +36,7 @@ function CatalogItem({ item }) {
           </div>
           <div className={css.containerRating}>
             {isFavorite ? (
-              <Icon
+              <IconOptions
                 id="star-full"
                 className={css.star}
                 width={16}
@@ -39,7 +44,7 @@ function CatalogItem({ item }) {
                 fillColor="#FFC531"
               />
             ) : (
-              <Icon
+              <IconOptions
                 id="star-empty"
                 className={css.star}
                 width={16}
@@ -51,7 +56,7 @@ function CatalogItem({ item }) {
               className={css.rating}
             >{`${item.rating} (${item.reviews.length} Reviews)`}</p>
             <p className={css.location}>
-              <Icon
+              <IconOptions
                 id="location"
                 width={16}
                 height={16}
@@ -59,10 +64,9 @@ function CatalogItem({ item }) {
               />
               {item.location}
             </p>
-            <p className={css.aboutCamper}>{item.description}</p>
-            <CamperItemOptions />
+            <p className={css.aboutDescription}>{item.description}</p>
+            <CamperItemOptions item={item} />
           </div>
-          <p className={css.aboutText}>{item.description}</p>
           <Link to={`/campers/${item.id}`} target="_blank">
             <Button type="button" className={css.showMore}>
               Show More

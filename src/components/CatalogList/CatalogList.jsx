@@ -1,41 +1,54 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { fetchCampers, setPage } from '../../redux/campers/campersSlice.js';
 import css from './CatalogList.module.css';
 import CatalogItem from '../CatalogItem/CatalogItem.jsx';
 import Button from '../Button/Button.jsx';
-
-// import { selectCampersList } from '../../store/selectors';
-// логіка кнопки
+import ToastNotification from '../ToastNotification/ToastNotification.jsx';
 
 const PER_PAGE = 4;
 
-function CatalogList() {
-  const campersList = useSelector(selectCampersList);
-  const [page, setPage] = useState(1);
-  const [visibleCampersList, setVisibleCampersList] = useState(
-    campersList.slice(0, page * PER_PAGE)
+const CatalogList = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { items: campersList, totalItems, page, loading, error } = useSelector(
+    state => state.campers
   );
 
   useEffect(() => {
-    setVisibleCampersList(campersList.slice(0, page * PER_PAGE));
-  }, [campersList, page]);
-
-  const isVisible = page * PER_PAGE < campersList.length;
+    const queryParams = new URLSearchParams(location.search);
+    const currentPage = parseInt(queryParams.get('page')) || 1;
+    const filterParams = {
+      page: currentPage,
+      perPage: PER_PAGE,
+    };
+    dispatch(fetchCampers(filterParams));
+  }, [location.search, dispatch]);
 
   const handleLoadMore = () => {
-    setPage(prev => prev + 1);
+    const newPage = page + 1;
+    const queryParams = new URLSearchParams(location.search);
+    queryParams.set('page', newPage);
+    navigate(`/catalog?${queryParams.toString()}`);
+    dispatch(setPage(newPage));
   };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <section className={css.section}>
+      <ToastNotification />
       {campersList.length > 0 ? (
         <>
           <ul className={css.list}>
-            {visibleCampersList.map(item => (
-              <CatalogItem key={item._id} item={item} />
+            {campersList.map(item => (
+              <CatalogItem key={item.id} item={item} />
             ))}
           </ul>
-          {isVisible && (
+          {page * PER_PAGE < totalItems && (
             <Button
               className={css.loadMore}
               type="button"
@@ -50,6 +63,6 @@ function CatalogList() {
       )}
     </section>
   );
-}
+};
 
 export default CatalogList;
