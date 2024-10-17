@@ -1,7 +1,7 @@
 import Navigation from '../Navigation/Navigation.jsx';
 import css from './AppBar.module.css';
 
-export const AppBar = () => {
+export const AppBar = ({}) => {
   return (
     <>
       <header className={css.header}>

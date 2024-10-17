@@ -1,6 +1,7 @@
 body {
-  font-family: sans-serif;
-  line-height: 1.5;
+  font-family:'Inter' sans-serif;
+  /* line-height: 1.5;
+  font-weight: 400; */
 }
 
 h1,
@@ -11,6 +12,7 @@ h5,
 h6,
 p {
   margin: 0;
+  padding: 0;
 }
 
 ul,
@@ -24,8 +26,7 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
-  /* margin-left: 50px;
-  margin-right: 50px; */
+ 
 }
 
 button {

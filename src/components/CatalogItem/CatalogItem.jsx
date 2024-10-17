@@ -67,7 +67,7 @@ function CatalogItem({ item }) {
             <p className={css.aboutDescription}>{item.description}</p>
             <CamperItemOptions item={item} />
           </div>
-          <Link to={`/campers/${item.id}`} target="_blank">
+          <Link to={`/catalog/${item.id}`} target="_blank">
             <Button type="button" className={css.showMore}>
               Show More
             </Button>

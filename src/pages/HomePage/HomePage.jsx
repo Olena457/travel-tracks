@@ -10,7 +10,7 @@ const HomePage = () => {
           <h1 className={css.title}>Campers of your dreams</h1>
           <h2 className={css.description}>
             You can find everything you want in our catalog
-            <Link to="/campers">
+            <Link to="/catalog">
               <Button className={css.viewNow}>View Now</Button>
             </Link>
           </h2>

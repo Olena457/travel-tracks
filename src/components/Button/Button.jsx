@@ -5,9 +5,9 @@ const Button = ({ className, children, onClick }) => {
   const getButtonStyle = () => {
     switch (children.toLowerCase()) {
       case 'search':
-        return css.baseButton;
+        return css.searchButton;
       case 'send':
-        return css.baseButton;
+        return css.sendButton;
       case 'show more':
         return css.showMore;
       case 'load more':

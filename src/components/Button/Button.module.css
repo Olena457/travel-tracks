@@ -1,5 +1,63 @@
-/* перглянути кнопку loadMore margin!!! */
 
+.baseButton {
+  width: 166px;
+  height: 56px;
+  padding: 16px 20px;
+  gap: 10px;
+  border-radius: 200px ;
+  line-height: 1.5;
+  color: #fff;
+  cursor: pointer;
+  background: #e44848;
+  transition: background-color 0.3s ease;
+}
+
+.viewNow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Inter, san-serif;
+  padding: 16px 20px;
+ 
+  width: 173px;
+  height: 56px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 200px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  color: #fff;
+  background: #e44848;
+  margin-top: 35px;
+  transition: background-color 0.3s ease;
+}
+.searchButton{
+  width: 166px;
+  height: 56px;
+   padding: 16px 20px;
+  gap: 10px;
+  border-radius: 200px ;
+  line-height: 1.5;
+  color: #fff;
+  cursor: pointer;
+  background: #e44848;
+  transition: background-color 0.3s ease;
+}
+.sendButton{
+   width: 166px;
+  height: 56px;
+  padding: 16px 60px;
+  gap: 10px;
+  border-radius: 200px;
+  line-height: 1.5;
+  color: #fff;
+  cursor: pointer;
+  background: #e44848;
+  transition: background-color 0.3s ease;
+
+}
 .loadMore {
   border: 1px solid#DADDE1;
   border-radius: 200px;
@@ -22,38 +80,8 @@
   border: 1px solid #e44848;
 }
 
-.baseButton {
-  width: 166px;
-  height: 56px;
-  padding: 16px 60px;
-  gap: 10px;
-  border-radius: 200px 0px 0px 0px;
-  line-height: 1.5;
-  color: #fff;
-  cursor: pointer;
-  background: #e44848;
-  transition: background-color 0.3s ease;
-}
-.viewNow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-family: Inter, san-serif;
-  padding: 0 20px;
-  width: 173px;
-  height: 56px;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 200px;
-  line-height: 1.5;
-  letter-spacing: -0.005em;
-  cursor: pointer;
-  color: #fff;
-  background: #e44848;
-  margin-top: 35px;
-  transition: background-color 0.3s ease;
-}
+
+
 
 .showMore {
   font-family: 'Inter', sans-serif;
@@ -65,6 +93,7 @@
   border-radius: 200px;
   padding: 16px 60px;
   width: 166px;
+  cursor: pointer;
   height: 56px;
   background: #e44848;
   transition: background-color 0.3s ease;
