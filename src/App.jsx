@@ -1,9 +1,9 @@
+import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout/Layout.jsx';
 import ToastNotification from './components/ToastNotification/ToastNotification.jsx';
 
-import { Suspense } from 'react';
 const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage.jsx'));
 const CamperPageFeature = lazy(() =>
@@ -36,9 +36,3 @@ function App() {
 }
 
 export default App;
-
-// import CatalogPage from './pages/CatalogPage/CatalogPage.jsx';
-// import FavoriteCampPage from './pages/FavoriteCampPage/FavoriteCampPage';
-// import CamperPageFeature from './pages/CamperPageFeature/CamperPageFeature';
-// import CamperPageReviews from './pages/CamperPageReviews/CamperPageReviews';
-// import HomePage from './pages/HomePage/HomePage';
