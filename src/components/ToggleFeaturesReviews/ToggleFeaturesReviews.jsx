@@ -24,11 +24,11 @@
 // }
 
 // export default ToggleFeaturesReviews;
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import clsx from 'clsx';
 import css from './ToggleFeaturesReviews.module.css';
 import { fetchCamperById } from '../../redux/campers/campersApi.js';
-
+import { Outlet } from 'react-router-dom';
 function ToggleFeaturesReviews() {
   const { id } = useParams();
   const { data, error, isLoading } = fetchCamperById(id);
@@ -45,17 +45,18 @@ function ToggleFeaturesReviews() {
   return (
     <div className={css.containerToggle}>
       <div className={css.containerLink}>
-        <NavLink className={activeLink} to={`campers/${id}/features`}>
+        <NavLink className={activeLink} to={`/catalog/${id}/features`}>
           Features
         </NavLink>
-        <NavLink className={activeLink} to={`campers/${id}/reviews`}>
+        <NavLink className={activeLink} to={`/catalog/${id}/reviews`}>
           Reviews
         </NavLink>
       </div>
-      <div className={css.camperDetails}>
+      {/* <div className={css.camperDetails}>
         <h2>{data.name}</h2>
-        <p>{data.description}</p>
-      </div>
+        <p>{data.description}</p> */}
+      {/* </div> */}
+      <Outlet />
     </div>
   );
 }

@@ -9,6 +9,7 @@ import {
 } from '../../redux/campers/campersSelectors.js';
 import { fetchCamperById } from '../../redux/campers/campersApi.js';
 import FavoriteCampList from '../../components/FavoriteCampList/FavoriteCampList.jsx';
+import { Outlet } from 'react-router-dom';
 
 function FavoriteCampPage() {
   const favoriteIds = useSelector(selectFavoritesId);
