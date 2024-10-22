@@ -1,127 +1,109 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useId } from 'react';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { toast } from 'react-hot-toast';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import clsx from 'clsx';
-import IconOptions from '../IconOptions/IconOptions.jsx';
-import { toast } from 'react-hot-toast';
 
-import ToastNotification from '../ToastNotification/ToastNotification.jsx';
+import css from './FormBook.module.css';
 
-const BookSchema = Yup.object().shape({
-  username: Yup.string()
-    .min(3, 'Too short!')
-    .max(50, 'Too long!')
-    .required('Required'),
-  date: Yup.date().required('Required'),
-  email: Yup.string()
-    .email('Invalid email')
-    .required('Required'),
-  comment: Yup.string()
-    .min(5, 'Too short!')
-    .max(250, 'Too long!'),
-});
-
-const initialValues = {
-  username: '',
-  date: '',
-  message: '',
-};
-const DatepickerField = ({ field, form, placeholder, ...props }) => {
-  return (
-    <DatePicker
-      {...field}
-      {...props}
-      placeholderText={placeholder}
-      selected={(field.value && new Date(field.value)) || null}
-      onChange={value => {
-        form.setFieldValue(field.name, value);
-      }}
-    />
-  );
-};
-export const FormBook = () => {
-  const nameField = useId();
-  const dateFieldId = useId();
-  const messageField = useId();
-  const emailFieldId = useId();
-
-  const handleSubmit = (values, actions) => {
-    toast.success('The order was successfylly created');
-    actions.resetForm();
+function FormBook(data) {
+  const initial = {
+    name: '',
+    email: '',
+    bookingDate: '',
+    comment: '',
   };
 
+  function submitHandler(values) {
+    actions.resetForm();
+    toast.success('The order was successfully created');
+  }
+
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .min(3, 'Too short!')
+      .max(50, 'Too long!')
+      .required('Name is required'),
+    email: Yup.string()
+      .email('Invalid email format')
+      .required('Email is required'),
+    bookingDate: Yup.date()
+      .required('Booking date is required')
+      .min(tomorrow, 'Select a date between today')
+      .nullable(),
+    comment: Yup.string().max(
+      200,
+      ' The comment should be no more than 200 characters'
+    ),
+  });
+
   return (
-    <div className={css.container}>
-      <ToastNotification />
-      <h4 className={css.title}>Book your campervan now</h4>
-      <p className={css.description}>
-        Stay connected! We are always ready to help you.
-      </p>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={BookSchema}
-      >
-        <Form>
-          <div className={css.containerName}>
+    <Formik
+      initialValues={initial}
+      onSubmit={submitHandler}
+      validationSchema={validationSchema}
+    >
+      {({ setFieldValue }) => (
+        <Form className={css.form}>
+          <h3 className={css.title}>Book your campervan now</h3>
+          <p className={css.description}>
+            Stay connected! We are always ready to help you.
+          </p>
+          <div className={css.inputBox}>
             <Field
-              type="text"
-              name="username"
-              id={nameField}
+              className={css.input}
+              name="name"
               placeholder="Name*"
-              className={clsx(user.name, css.field)}
-            />
-            <ErrorMessage name="username" component="p" className={css.error} />
-          </div>
-
-          <div className={css.containerEmail}>
+            ></Field>
+            <ErrorMessage name="name" component="span" className={css.error} />
             <Field
-              type="email"
+              className={css.input}
               name="email"
-              id={emailFieldId}
               placeholder="Email*"
-              className={clsx(css.email, css.field)}
-            />
-            <ErrorMessage name="email" component="p" className={css.error} />
-          </div>
-
-          <div className={css.containerDate}>
-            <label htmlFor={dateFieldId}>
-              <Field
-                type="date"
-                component={DatepickerField}
-                name="date"
-                id={dateFieldId}
-                placeholder="Select a date between today"
-                className={clsx(css.date, css.field)}
+            ></Field>
+            <ErrorMessage name="email" component="span" className={css.error} />
+            <div className={css.datePicker}>
+              <Field name="bookingDate">
+                {({ field }) => (
+                  <DatePicker
+                    {...field}
+                    selected={field.value ? new Date(field.value) : null}
+                    onChange={date => setFieldValue('bookingDate', date)}
+                    placeholderText="Booking date*"
+                    dateFormat="dd/MM/yyyy"
+                    className={css.input}
+                    calendarClassName={css.datePicker}
+                  />
+                )}
+              </Field>
+              <ErrorMessage
+                name="bookingDate"
+                component="span"
+                className={css.error}
               />
-              <IconOptions
-                id="calendar"
-                className={css.calendarIcon}
-                width={16}
-                height={16}
-                fillColor="#fff"
-              />
-              <ErrorMessage name="date" component="p" className={css.error} />
-            </label>
-          </div>
-          <div>
+            </div>
             <Field
-              type="comment"
+              className={css.comment}
               name="comment"
-              id={messageField}
+              as="textarea"
               placeholder="Comment"
-              className={clsx(css.comment, css.field)}
+            ></Field>
+            <ErrorMessage
+              name="comment"
+              component="span"
+              className={css.error}
             />
-            <ErrorMessage name="comment" component="p" className={css.error} />
           </div>
-          <Button className={css.baseButton} type="submit">
+          <button className={css.btnSend} type="submit">
             Send
-          </Button>
+          </button>
         </Form>
-      </Formik>
-    </div>
+      )}
+    </Formik>
   );
-};
+}
+
+export default FormBook;

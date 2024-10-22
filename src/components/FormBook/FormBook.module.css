@@ -1,69 +1,94 @@
-.container {
-  border: 1px solid #dadde1;
-  padding: 20px;
-  width: 641px;
-  border-radius: 10px;
-  height: 588px;
+
+.form {
+padding: 44px;
+border: 1px solid rgb(218, 221, 225);
+border-radius: 10px;
 }
 .title {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.2;
-  color: #101828;
-  margin-bottom: 8px;
+color: rgb(16, 24, 40);
+font-size: 20px;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+margin-bottom: 8px;
 }
 .description {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #475467;
-  margin-bottom: 24px;
+  color: rgb(108, 113, 123);
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+margin-bottom: 24px;
 }
-
-.containerName {
-  position: relative;
+.inputBox {
+ display: flex;
+ flex-direction: column;
+ gap: 14px;
+ margin-bottom: 24px;
 }
-.name {
-  width: 400px;
-  height: 56px;
-  margin-bottom: 14px;
+.input {
+ width: 527px;
+ height: 60px;
+ padding: 18px;
+ border-radius: 12px;
+ background: rgb(247, 247, 247);
 }
 .error {
-  color: #e44848;
-  font-size: 14px;
-  position: absolute;
-  top: 52px;
-  left: 18px;
+width: 527px;
+height: 60px;
+padding: 18px;
+border-radius: 12px;
+background: rgb(197, 49, 49);
+color: white;
 }
-.containerEmail {
-  position: relative;
-}
-.email {
-  width: 400px;
-  height: 56px;
-  margin-bottom: 14px;
-}
-.containerDate {
-  position: relative;
-}
-.date {
-  width: 400px;
-  height: 56px;
-  margin-bottom: 14px;
-}
-.calendarIcon {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  cursor: pointer;
+.datePicker .react-datepicker__day--selected,
+.datePicker .react-datepicker__day--keyboard-selected {
+ border-radius: 50%;
+ background-color: #2C3E50; 
+ color: red; 
 }
 
+
 .comment {
-  width: 400px;
-  height: 114px;
-  margin-bottom: 24px;
-  resize: none;
+width: 527px;
+height: 118px;
+overflow: auto;
+border-radius: 10px;
+background: rgb(247, 247, 247);
+padding: 18px;
+resize: none;
+
 }
-/* calendar size!!!! */
+
+
+.input, .comment {
+color: rgb(108, 113, 123);
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+}
+.btnSend {
+width: 168px;
+height: 56px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 200px;
+background: rgb(228, 72, 72);
+margin-left: auto;
+margin-right: auto;
+color: rgb(255, 255, 255);
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: -0.5%;
+transition: all 250ms ease-in-out;
+}
+.btnSend:hover {
+background-color: rgb(216, 67, 67);
+}
+

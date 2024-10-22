@@ -1,81 +1,189 @@
-import { Link } from 'react-router-dom';
-import { selectFavoritesId } from '../../redux/campers/campersSelectors.js';
-import { toggleFavorite } from '../../redux/campers/campersSlice.js';
-import css from './CatalogItem.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import IconOptions from './../IconOptions/IconOptions.jsx';
+import { useDispatch } from 'react-redux';
+import { memo } from 'react';
 
-function CatalogItem({ item }) {
+import css from './CamperItem.module.css';
+import {
+  changeFavorite,
+  deleteFavorite,
+} from '../../redux/favorites/favoritesSlice.js';
+import Icon from '../Icon.jsx';
+
+function CamperItem({ data, isFavorite }) {
   const dispatch = useDispatch();
-  const favorites = useSelector(selectFavoritesId);
-  const isFavorite = favorites.indexOf(item._id) === -1 ? false : true;
+
+  function changeHandler(event) {
+    const isChecked = event.target.checked;
+    if (isChecked) {
+      dispatch(changeFavorite(data.id));
+    } else {
+      dispatch(deleteFavorite(data.id));
+    }
+  }
 
   return (
-    <li className={css.item}>
-      <img className={css.img} src={item.gallery[0].thumb} alt={item.name} />
-      <div className={css.container}>
-        <div className={css.containerInfo}>
-          <div className={css.containerName}>
-            <h3 className={css.name}>{item.name}</h3>
-            <div className={css.ContainerPrise}>
-              <h3 className={css.price}>€{item.price.toFixed(2)}</h3>
-              <button
-                type="button"
-                onClick={() => dispatch(toggleFavorite(item._id))}
-              >
-                <IconOptions
-                  id="like"
-                  className={css.like}
-                  width={24}
-                  height={24}
-                  fillColor="none"
-                  strokeColor={isFavorite ? '#e44848' : '#101828'}
-                />
-              </button>
-            </div>
-          </div>
-          <div className={css.containerRating}>
-            {isFavorite ? (
-              <IconOptions
-                id="star-full"
-                className={css.star}
-                width={16}
-                height={16}
-                fillColor="#FFC531"
-              />
-            ) : (
-              <IconOptions
-                id="star-empty"
-                className={css.star}
-                width={16}
-                height={16}
-                fillColor="#F2F4F7"
-              />
-            )}
-            <p
-              className={css.rating}
-            >{`${item.rating} (${item.reviews.length} Reviews)`}</p>
-            <p className={css.location}>
-              <IconOptions
-                id="location"
-                width={16}
-                height={16}
-                className={css.locationIcon}
-              />
-              {item.location}
-            </p>
-            <p className={css.aboutDescription}>{item.description}</p>
-            <CamperItemOptions item={item} />
-          </div>
-          <Link to={`/catalog/${item.id}`} target="_blank">
-            <Button type="button" className={css.showMore}>
-              Show More
-            </Button>
-          </Link>
-        </div>
+    <div className={css.container}>
+      <div className={css.imgBox}>
+        <img
+          className={css.mainImg}
+          src={data.gallery[0].thumb}
+          alt={data.name}
+        />
       </div>
-    </li>
+      <div>
+        <div className={css.namePriceBox}>
+          <h3 className={css.title}>{data.name}</h3>
+          <div className={css.priceBox}>
+            <p className={css.price}>{`€ ${data.price
+              .toFixed(2)
+              .replace('.', ',')}`}</p>
+            <label className={css.label}>
+              <input
+                className={css.input}
+                onChange={changeHandler}
+                checked={isFavorite}
+                type="checkbox"
+              />
+              <Icon
+                cl={css.iconHeart}
+                id="icon-heart"
+                width={24}
+                height={20}
+              ></Icon>
+            </label>
+          </div>
+        </div>
+        <div>
+          <ul className={css.ratingLocation}>
+            <li>
+              <Icon
+                cl={css.iconStar}
+                id="icon-star"
+                width={16}
+                height={16}
+              ></Icon>
+              {`${data.rating}(${data.reviews.length} reviews)`}
+            </li>
+            <li className={css.locationLi}>
+              <Icon
+                cl={css.mapIcon}
+                id="icon-map"
+                width="20"
+                height="20"
+              ></Icon>
+              <p className={css.location}>{data.location}</p>
+            </li>
+          </ul>
+        </div>
+        <p className={css.description}>{data.description}</p>
+        <ul className={css.futureList}>
+          {data?.transmission === 'automatic' ? (
+            <li className={css.futureBox}>
+              <Icon
+                cl={css.iconFuture}
+                id="icon-diagram"
+                width={20}
+                height={15}
+              ></Icon>
+              Automatic
+            </li>
+          ) : (
+            <></>
+          )}
+          {data?.AC ? (
+            <li className={css.futureBox}>
+              <Icon
+                cl={css.iconFuture}
+                id="icon-wind"
+                width={20}
+                height={17}
+              ></Icon>
+              AC
+            </li>
+          ) : (
+            <></>
+          )}
+          <li className={css.futureBox}>
+            <Icon
+              cl={css.iconFuture}
+              id="icon-gas"
+              width={20}
+              height={20}
+            ></Icon>
+            Petrol
+          </li>
+          {data?.TV ? (
+            <li className={css.futureBox}>
+              <Icon
+                cl={css.iconFuture}
+                id="icon-tv"
+                width={15}
+                height={20}
+              ></Icon>
+              TV
+            </li>
+          ) : (
+            <></>
+          )}
+          {data?.kitchen ? (
+            <li className={css.futureBox}>
+              <Icon
+                cl={css.iconFuture}
+                id="icon-cup"
+                width={20}
+                height={13}
+              ></Icon>
+              Kitchen
+            </li>
+          ) : (
+            <></>
+          )}
+          {data?.radio ? (
+            <li className={css.futureBox}>
+              <Icon
+                cl={css.iconFuture}
+                id="icon-radio"
+                width={19}
+                height={17}
+              ></Icon>
+              Radio
+            </li>
+          ) : (
+            <></>
+          )}
+          {data?.bathroom ? (
+            <li className={css.futureBox}>
+              <Icon
+                cl={css.iconFuture}
+                id="icon-droplet"
+                width={15}
+                height={20}
+              ></Icon>
+              Bathroom
+            </li>
+          ) : (
+            <></>
+          )}
+          <li className={css.futureBox}>
+            <Icon
+              cl={css.iconFuture}
+              id="icon-people"
+              width={20}
+              height={15}
+            ></Icon>
+            2 adults
+          </li>
+        </ul>
+        <a
+          className={css.showMore}
+          href={`/catalog/${data.id}/futures`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Show more
+        </a>
+      </div>
+    </div>
   );
 }
 
-export default CatalogItem;
+export default memo(CamperItem);

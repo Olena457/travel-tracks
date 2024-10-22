@@ -1,14 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 import css from './FavoriteCampPage.module.css';
 import Loader from '../../components/Loader/Loader.jsx';
 import {
   selectFavoritesId,
   selectLoading,
 } from '../../redux/campers/campersSelectors.js';
-import { fetchCamperById } from '../../redux/campers/campersApi.js';
-import FavoriteCampList from '../../components/FavoriteCampList/FavoriteCampList.jsx';
-import { Outlet } from 'react-router-dom';
+import { toggleFavorite } from '../../redux/campers/campersSlice.js';
+import {
+  loadFavoritesFromLocalStorage,
+  saveFavoritesToLocalStorage,
+} from '../../redux/operation/localStorageHelpers.js';
 import { FormBook } from '../../components/FormBook/FormBook.jsx';
 
 function FavoriteCampPage() {
@@ -17,12 +20,15 @@ function FavoriteCampPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    favoriteIds.forEach(id => {
-      dispatch(fetchCamperById(id));
-    });
-  }, [dispatch, favoriteIds]);
+    const savedFavorites = loadFavoritesFromLocalStorage();
+    savedFavorites.forEach(id => dispatch(toggleFavorite(id)));
+  }, [dispatch]);
 
-  // Відображаємо списки камперів
+  useEffect(() => {
+    saveFavoritesToLocalStorage(favoriteIds);
+  }, [favoriteIds]);
+
+  //  списки камперів
   const campers = useSelector(state =>
     favoriteIds.map(id => state.campers.items.find(camper => camper.id === id))
   );

@@ -1,4 +1,4 @@
-.wrapperCatalog {
+/* .wrapperCatalog {
   display: flex;
   gap: 48px;
   padding-left: 48px;
@@ -8,5 +8,21 @@
   overflow-y: auto;
   max-height: 100vh;
   padding: 38px 48px 50px 48px;
+} */
+
+   .wrapperCatalog {
+    display: flex;
+    gap: 64px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 40px;
+    padding-top: 48px;
+   }
+
+.notFoundErr {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  color: #e44848;
 }
-/* перглянути padding */

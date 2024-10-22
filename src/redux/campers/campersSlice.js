@@ -1,4 +1,3 @@
-// ______________________________________________________________________
 // import { createSlice } from '@reduxjs/toolkit';
 
 // const campersInitialState = {
@@ -7,6 +6,7 @@
 //   perPage: 4,
 //   sortOrder: 'asc',
 //   sortBy: '_id',
+//   deleteStatus: null, //  стейт для видалення
 // };
 
 // const campersSlice = createSlice({
@@ -24,7 +24,7 @@
 //     },
 //     removeFavorite: (state, action) => {
 //       const id = action.payload;
-//       state.favorites = state.favorites.filter(favoriteId => favoriteId !== id);
+//       state.favorites = state.favorites.filter(favId => favId !== id);
 //     },
 //     setPage: (state, action) => {
 //       state.page = action.payload;
@@ -38,6 +38,9 @@
 //     setSortOrder: (state, action) => {
 //       state.sortOrder = action.payload;
 //     },
+//     setDeleteStatus: (state, action) => {
+//       state.deleteStatus = action.payload;
+//     },
 //   },
 // });
 
@@ -48,64 +51,60 @@
 //   setPerPage,
 //   setSortBy,
 //   setSortOrder,
+//   setDeleteStatus,
 // } = campersSlice.actions;
 
 // export const campersReducer = campersSlice.reducer;
-// ___________________________________
-import { createSlice } from '@reduxjs/toolkit';
+// ____________________________________________________
+// import { createSlice } from '@reduxjs/toolkit';
+// import { fetchCamperById, fetchCampers } from './campersApi.js';
+// import { createSlice } from '@reduxjs/toolkit';
+// import { fetchCamperById, fetchCampers, fetchAll } from '../operation.js';
 
-const campersInitialState = {
-  favorites: [],
-  page: 1,
-  perPage: 4,
-  sortOrder: 'asc',
-  sortBy: '_id',
-  deleteStatus: null, //  стейт для видалення
-};
+// const campersSlice = createSlice({
+//   name: 'campers',
+//   initialState: {
+//     items: [],
+//     page: 1,
+//     total: 1,
+//     selectedCamper: null,
+//     favorites: 'favorites' || [],
+//     status: 'idle',
+//   },
+//   reducers: {
+//     toggleFavorite: (state, action) => {
+//       const camperId = action.payload;
+//       const isFavorite = state.favorites.some(fav => fav.id === camperId);
 
-const campersSlice = createSlice({
-  name: 'campers',
-  initialState: campersInitialState,
-  reducers: {
-    toggleFavorite: (state, action) => {
-      const id = action.payload;
-      const index = state.favorites.indexOf(id);
-      if (index !== -1) {
-        state.favorites.splice(index, 1);
-      } else {
-        state.favorites.push(id);
-      }
-    },
-    removeFavorite: (state, action) => {
-      const id = action.payload;
-      state.favorites = state.favorites.filter(favId => favId !== id);
-    },
-    setPage: (state, action) => {
-      state.page = action.payload;
-    },
-    // setPerPage: (state, action) => {
-    //   state.perPage = action.payload;
-    // },
-    // setSortBy: (state, action) => {
-    //   state.sortBy = action.payload;
-    // },
-    // setSortOrder: (state, action) => {
-    //   state.sortOrder = action.payload;
-    // },
-    setDeleteStatus: (state, action) => {
-      state.deleteStatus = action.payload;
-    },
-  },
-});
+//       if (!isFavorite) {
+//         const camperToAdd = state.items.find(camper => camper.id === camperId);
+//         if (camperToAdd) {
+//           state.favorites.push(camperToAdd);
+//         }
+//       } else {
+//         state.favorites = state.favorites.filter(fav => fav.id !== camperId);
+//       }
+//       localStorage.setItem('favorites', JSON.stringify(state.favorites));
+//     },
+//   },
+//   extraReducers: builder => {
+//     builder
+//       .addCase(fetchCampers.pending, state => {
+//         state.status = 'loading';
+//       })
+//       .addCase(fetchCampers.fulfilled, (state, action) => {
+//         state.status = 'succeeded';
+//         state.items = action.payload;
+//       })
+//       .addCase(fetchCamperById.pending, state => {
+//         state.status = 'loading';
+//       })
+//       .addCase(fetchCamperById.fulfilled, (state, action) => {
+//         state.status = 'succeeded';
+//         state.selectedCamper = action.payload;
+//       });
+//   },
+// });
 
-export const {
-  toggleFavorite,
-  removeFavorite,
-  setPage,
-  // setPerPage,
-  // setSortBy,
-  // setSortOrder,
-  setDeleteStatus,
-} = campersSlice.actions;
-
-export const campersReducer = campersSlice.reducer;
+// export const { toggleFavorite } = campersSlice.actions;
+// export default campersSlice.reducer;

@@ -1,6 +1,4 @@
-.section {
-  width: 888px;
-}
+
 .list {
   display: flex;
   flex-direction: column;
@@ -13,4 +11,28 @@
   font-size: 24px;
   line-height: 1.25;
   color: #e44848;
+}
+.loadMore {
+ width: 145px;
+height: 56px;
+margin-left: auto;
+margin-right: auto;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap: 10;
+padding: 16px 32px 16px 32px;
+border-radius: 200px;
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: -0.5%;
+transition: all 250ms ease-in-out;
+  color: #101828;
+  border: 2px solid #dadde1;
+}
+
+.loadMoreBtn:hover {
+  border: 2px solid #d84343;
 }

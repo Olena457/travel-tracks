@@ -1,6 +1,8 @@
-/* .container { */
-/* } первірити контейнер */
-.name {
+.aboutWrapper{
+   margin-bottom: 60px;
+}
+
+.title {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 24px;
@@ -8,14 +10,34 @@
   color: #101828;
   margin-bottom: 8px;
 }
-.ratingWrapper {
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
+.locationRating {
+display: flex;
+justify-content: flex-start;
+gap: 16px;
+margin-bottom: 16px;
+color: rgb(16, 24, 40);
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
 }
-.star {
+.iconStar {
   fill: #ffc531;
   margin-right: 4px;
+}
+
+.location{
+ display: flex;
+ gap: 4px;
+
+}
+.price {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  color: #101828;
+  margin-bottom: 24px;
 }
 .rating {
   font-family: 'Inter', sans-serif;
@@ -38,40 +60,44 @@
 .locationIcon {
   margin-right: 4px;
 }
-.price {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 1.25;
-  color: #101828;
-  margin-bottom: 24px;
-}
-.list {
+/* .listImg {
   display: flex;
   width: 1312px;
   height: 312px;
   gap: 8px;
-  justify-content: space-between;
-  /*  провірити gap*/
+  justify-content: space-between; 
   margin-bottom: 24px;
+} */
+.listImg {
+display: flex;
+gap: 48px;
+overflow: hidden;
+margin-bottom: 28px;  
+margin-bottom: 24px;
 }
 
-.photoFavorite {
-  border-radius: 10px;
-  width: 292px;
-  height: 312px;
-  object-fit: cover;
+.containerImg {
+width: 292px;
+height: 312px;
+object-fit: cover;
+overflow: hidden;
+border-radius: 10px;
+}
+.img {
+ height: 100%;
 }
 .descriptionWrapper {
   width: 1312px;
   max-height: 50px;
   overflow-y: auto;
 }
-.aboutDescription {
+
+
+.description {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   color: #475467;
-  margin-bottom: 44px;
+  text-align: left;
 }

@@ -1,22 +1,59 @@
-/* .section {
-  gap: 24px;
-  margin-top: 44px;
-} */
-.contanerReview {
-  display: flex;
-  width: 1314px;
-  gap: 32px;
-  margin-top: 20px;
+.ContainerReview {
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
 }
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.notFound {
+.noReviews {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 24px;
   line-height: 1.25;
   color: #e44848;
+}
+
+.userInfo {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.avatar{
+width: 60px;
+height: 60px;
+border-radius: 60px;
+background: rgb(242, 244, 247);
+display: flex;
+justify-content: center;
+align-items: center;
+color: rgb(228, 72, 72);
+font-size: 24px;
+font-weight: 600;
+line-height: 1.3;
+
+}
+.nameBox {
+   display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.starBox {
+   display: flex;
+    gap: 4px;
+}
+.description {
+  color: rgb(71, 84, 103);
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+}
+
+.iconStar {
+    color: #FFC531;
+}
+
+.iconStarEmpty {
+    color: #F2F4F7;
 }

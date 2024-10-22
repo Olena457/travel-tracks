@@ -1,31 +1,39 @@
-.container {
-  display: flex;
-  width: 1314px;
-  gap: 20px;
-  margin-top: 20px;
+
+.ContainerFeatures {
+  padding: 44px;
+    border-radius: 10px;
+    background: rgb(247, 247, 247);
+
+}
+.featureList {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+.featureBox {
+    background: rgb(242, 244, 247);
+    padding: 12px 18px 12px 18px;
+    border-radius: 100px;
+    display: flex;
+    gap: 8px;
 }
 .title {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.2;
-  color: #101828;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(16, 24, 40, 0.1);
+  color: rgb(16, 24, 40);
+font-size: 20px;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: 0%;
+margin-bottom: 24px;
 }
-.listFeature {
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.detailsList {
+   padding-top: 24px;
+    border-top: 1px solid rgb(218, 221, 225);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
-.featuresItem {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.33333;
-  text-align: center;
-  color: #101828;
+.detailBox {
   display: flex;
-  justify-content: space-between;
+    justify-content: space-between;
 }

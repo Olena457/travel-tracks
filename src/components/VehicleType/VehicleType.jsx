@@ -111,7 +111,7 @@ const VehicleType = () => {
                 id="alcove"
                 style={{ display: 'none' }}
                 onChange={handleChange}
-              />{' '}
+              />
               <IconOptions
                 id="camper-full"
                 width={40}
