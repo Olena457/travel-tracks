@@ -6,7 +6,7 @@
 //   perPage: 4,
 //   sortOrder: 'asc',
 //   sortBy: '_id',
-//   deleteStatus: null, //  стейт для видалення
+//   deleteStatus: null,
 // };
 
 // const campersSlice = createSlice({
@@ -29,15 +29,7 @@
 //     setPage: (state, action) => {
 //       state.page = action.payload;
 //     },
-//     setPerPage: (state, action) => {
-//       state.perPage = action.payload;
-//     },
-//     setSortBy: (state, action) => {
-//       state.sortBy = action.payload;
-//     },
-//     setSortOrder: (state, action) => {
-//       state.sortOrder = action.payload;
-//     },
+//
 //     setDeleteStatus: (state, action) => {
 //       state.deleteStatus = action.payload;
 //     },

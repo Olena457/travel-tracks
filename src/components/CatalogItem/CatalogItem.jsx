@@ -1,14 +1,13 @@
 import { useDispatch } from 'react-redux';
 import { memo } from 'react';
-
-import css from './CamperItem.module.css';
+import css from './CatalogItem.module.css';
 import {
   changeFavorite,
   deleteFavorite,
 } from '../../redux/favorites/favoritesSlice.js';
 import Icon from '../Icon.jsx';
 
-function CamperItem({ data, isFavorite }) {
+function CatalogItem({ data, isFavorite }) {
   const dispatch = useDispatch();
 
   function changeHandler(event) {
@@ -75,9 +74,9 @@ function CamperItem({ data, isFavorite }) {
           </ul>
         </div>
         <p className={css.description}>{data.description}</p>
-        <ul className={css.futureList}>
+        <ul className={css.featureList}>
           {data?.transmission === 'automatic' ? (
-            <li className={css.futureBox}>
+            <li className={css.featureBox}>
               <Icon
                 cl={css.iconFuture}
                 id="icon-diagram"
@@ -90,7 +89,7 @@ function CamperItem({ data, isFavorite }) {
             <></>
           )}
           {data?.AC ? (
-            <li className={css.futureBox}>
+            <li className={css.featureBox}>
               <Icon
                 cl={css.iconFuture}
                 id="icon-wind"
@@ -102,7 +101,7 @@ function CamperItem({ data, isFavorite }) {
           ) : (
             <></>
           )}
-          <li className={css.futureBox}>
+          <li className={css.featureBox}>
             <Icon
               cl={css.iconFuture}
               id="icon-gas"
@@ -112,7 +111,7 @@ function CamperItem({ data, isFavorite }) {
             Petrol
           </li>
           {data?.TV ? (
-            <li className={css.futureBox}>
+            <li className={css.featureBox}>
               <Icon
                 cl={css.iconFuture}
                 id="icon-tv"
@@ -125,7 +124,7 @@ function CamperItem({ data, isFavorite }) {
             <></>
           )}
           {data?.kitchen ? (
-            <li className={css.futureBox}>
+            <li className={css.featureBox}>
               <Icon
                 cl={css.iconFuture}
                 id="icon-cup"
@@ -138,7 +137,7 @@ function CamperItem({ data, isFavorite }) {
             <></>
           )}
           {data?.radio ? (
-            <li className={css.futureBox}>
+            <li className={css.featureBox}>
               <Icon
                 cl={css.iconFuture}
                 id="icon-radio"
@@ -151,7 +150,7 @@ function CamperItem({ data, isFavorite }) {
             <></>
           )}
           {data?.bathroom ? (
-            <li className={css.futureBox}>
+            <li className={css.featureBox}>
               <Icon
                 cl={css.iconFuture}
                 id="icon-droplet"
@@ -163,7 +162,7 @@ function CamperItem({ data, isFavorite }) {
           ) : (
             <></>
           )}
-          <li className={css.futureBox}>
+          <li className={css.featureBox}>
             <Icon
               cl={css.iconFuture}
               id="icon-people"
@@ -175,7 +174,7 @@ function CamperItem({ data, isFavorite }) {
         </ul>
         <a
           className={css.showMore}
-          href={`/catalog/${data.id}/futures`}
+          href={`/catalog/${data.id}/features`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -186,4 +185,4 @@ function CamperItem({ data, isFavorite }) {
   );
 }
 
-export default memo(CamperItem);
+export default memo(CatalogItem);

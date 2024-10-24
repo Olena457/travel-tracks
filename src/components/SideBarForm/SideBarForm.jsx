@@ -1,20 +1,10 @@
 // _____________________________________________________________________________
-// import React, { useCallback, useMemo } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { setPage } from '../../redux/campers/campersSlice.js';
+//
 // import {
 //   setLocation,
 //   setVehicleType,
 //   toggleEquipment,
 // } from '../../redux/filters/filtersSlice';
-// import css from './Sidebar.module.css';
-// import VehicleKit from '../VehicleKit/VehicleKit.jsx';
-// import VehicleType from '../VehicleType/VehicleType.jsx';
-
-// const SideBar = () => {
-//   const locationId = useId();
-//   const dispatch = useDispatch();
-//   const filters = useSelector(state => state.filters);
 
 //   const handleInputChange = useCallback(
 //     e => {
@@ -53,9 +43,9 @@
 //     filters.vehicleType,
 //     filters.equipment,
 //   ]);
-
 //
 // export default React.memo(SideBar);
+// import { useMemo } from 'react';
 import css from './SideBarForm.module.css';
 import { Form, Field, Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
@@ -64,20 +54,15 @@ import { changeFilter, changePage, clearItems } from '../../redux/slice.js';
 import { selectFilters } from '../../redux/selectors.js';
 import Icon from '../Icon.jsx';
 
-import { useMemo } from 'react';
-
 function SideBarForm() {
   const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
 
-  const initialValues = useMemo(
-    () => ({
-      location: filters.location,
-      equipment: filters.equipment,
-      form: filters.form,
-    }),
-    [filters]
-  );
+  const initialValues = {
+    location: filters.location,
+    equipment: filters.equipment,
+    form: filters.form,
+  };
 
   function submitHandler(values) {
     dispatch(clearItems());

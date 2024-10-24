@@ -1,6 +1,6 @@
 import { useOutletContext } from 'react-router-dom';
 
-import css from './FeaturesFavorite.module.css';
+import css from './Features.module.css';
 import Icon from '../Icon.jsx';
 
 function FeaturesFavorite() {

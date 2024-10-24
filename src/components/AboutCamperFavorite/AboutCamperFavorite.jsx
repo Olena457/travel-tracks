@@ -3,7 +3,7 @@ import Icon from '../Icon.jsx';
 
 function AboutCamperFavorite({ data }) {
   return (
-    <div className={css.aboutWrapper}>
+    <div className={css.about}>
       <h3 className={css.title}>{data.name}</h3>
       <ul className={css.locationRating}>
         <li>
@@ -18,10 +18,10 @@ function AboutCamperFavorite({ data }) {
       <p className={css.price}>{`€ ${data.price
         .toFixed(2)
         .replace('.', ',')}`}</p>
-      <ul className={css.listImg}>
+      <ul className={css.imgList}>
         {data.gallery.map(item => (
           <li className={css.containerImg} key={item.original}>
-            <img className={css.img} src={item.original} alt="" />
+            <img className={css.imgGallery} src={item.original} alt="" />
           </li>
         ))}
       </ul>

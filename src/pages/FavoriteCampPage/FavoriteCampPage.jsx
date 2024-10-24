@@ -8,11 +8,8 @@ import {
   selectLoading,
 } from '../../redux/campers/campersSelectors.js';
 import { toggleFavorite } from '../../redux/campers/campersSlice.js';
-import {
-  loadFavoritesFromLocalStorage,
-  saveFavoritesToLocalStorage,
-} from '../../redux/operation/localStorageHelpers.js';
-import { FormBook } from '../../components/FormBook/FormBook.jsx';
+
+import FormBook from '../../components/FormBook/FormBook.jsx';
 
 function FavoriteCampPage() {
   const favoriteIds = useSelector(selectFavoritesId);

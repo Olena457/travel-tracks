@@ -1,6 +1,7 @@
 import css from './CatalogList.module.css';
 import CatalogItem from '../CatalogItem/CatalogItem.jsx';
-function CampersList({ totalPages, page, clickHandler, favs, campers }) {
+
+function CatalogList({ totalPages, page, clickHandler, favs, campers }) {
   return (
     <div>
       <ul className={css.list}>
@@ -8,20 +9,20 @@ function CampersList({ totalPages, page, clickHandler, favs, campers }) {
           const isFavorite = favs.includes(item.id);
           return (
             <li key={item.id}>
-              <CatalogItem data={item} isFavorite={isFavorite}></CatalogItem>
+              <CatalogItem data={item} isFavorite={isFavorite} />
             </li>
           );
         })}
       </ul>
       {totalPages > page ? (
-        <button className={css.loadMore} onClick={clickHandler}>
+        <button className={css.loadMoreBtn} onClick={clickHandler}>
           Load more
         </button>
       ) : (
-        <p className={css.notFound}> Unfortunately, the catalog has ended</p>
+        <p className={css.notFound}>Unfortunately the catalog has ended</p>
       )}
     </div>
   );
 }
 
-export default CampersList;
+export default CatalogList;

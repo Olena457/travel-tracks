@@ -31,8 +31,8 @@ function FormBook(data) {
       .email('Invalid email format')
       .required('Email is required'),
     bookingDate: Yup.date()
-      .required('Booking date is required')
-      .min(tomorrow, 'Select a date between today')
+      .required(' Date is required')
+      .min(tomorrow)
       .nullable(),
     comment: Yup.string().max(
       200,
@@ -47,7 +47,7 @@ function FormBook(data) {
       validationSchema={validationSchema}
     >
       {({ setFieldValue }) => (
-        <Form className={css.form}>
+        <Form className={css.formContainer}>
           <h3 className={css.title}>Book your campervan now</h3>
           <p className={css.description}>
             Stay connected! We are always ready to help you.
@@ -75,7 +75,6 @@ function FormBook(data) {
                     placeholderText="Booking date*"
                     dateFormat="dd/MM/yyyy"
                     className={css.input}
-                    calendarClassName={css.datePicker}
                   />
                 )}
               </Field>
@@ -97,6 +96,7 @@ function FormBook(data) {
               className={css.error}
             />
           </div>
+
           <button className={css.btnSend} type="submit">
             Send
           </button>

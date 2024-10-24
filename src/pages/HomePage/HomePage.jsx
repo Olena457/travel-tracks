@@ -9,10 +9,10 @@ const HomePage = () => {
           <h1 className={css.title}>Campers of your dreams</h1>
           <h2 className={css.description}>
             You can find everything you want in our catalog
-            <Link to="/catalog" className={css.viewNow}>
-              View Now
-            </Link>
           </h2>
+          <Link to="/catalog" className={css.viewNow}>
+            View Now
+          </Link>
         </div>
       </div>
     </>

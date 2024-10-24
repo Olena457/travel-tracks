@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import css from './CatalogPage.module.css';
 import Loader from '../../components/Loader/Loader.jsx';
-import SideBar from '../../components/SideBar/SideBar.jsx';
+import SideBarForm from '../../components/SideBarForm/SideBarForm.jsx';
 import { changePage } from '../../redux/slice.js';
 import {
   selectCapmers,
@@ -35,28 +35,30 @@ function CatalogPage() {
   }
 
   return !loading ? (
-    <section className={css.wrapperCatalog}>
-      <SideBar />
-      {!err ? (
-        <>
-          <CatalogList
-            totalPages={totalPages}
-            page={page}
-            clickHandler={clickHandler}
-            campers={campers}
-            favs={favs}
-          />
-          {totalPages <= page && (
-            <p className={css.notFoundErr}>
-              Unfortunately, the catalog has ended
-            </p>
-          )}
-        </>
-      ) : (
-        <p className={css.notFoundErr}>
-          An error occurred while loading the catalog
-        </p>
-      )}
+    <section className={css.section}>
+      <div className={css.wrapperCatalog}>
+        <SideBarForm />
+        {!err ? (
+          <>
+            <CatalogList
+              totalPages={totalPages}
+              page={page}
+              clickHandler={clickHandler}
+              campers={campers}
+              favs={favs}
+            />
+            {totalPages <= page && (
+              <p className={css.notFoundErr}>
+                Unfortunately, the catalog has ended
+              </p>
+            )}
+          </>
+        ) : (
+          <p className={css.notFoundErr}>
+            An error occurred while loading the catalog
+          </p>
+        )}
+      </div>
     </section>
   ) : (
     <Loader />

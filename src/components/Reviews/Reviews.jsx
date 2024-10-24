@@ -1,8 +1,8 @@
 import { useOutletContext } from 'react-router-dom';
-import css from './ReviewFavorite.module.css';
+import css from './Reviews.module.css';
 import Icon from '../Icon.jsx';
 
-function ReviewFavorite() {
+function Reviews() {
   const { data } = useOutletContext();
 
   return (
@@ -46,4 +46,4 @@ function ReviewFavorite() {
   );
 }
 
-export default ReviewFavorite;
+export default Reviews;
