@@ -9,21 +9,16 @@ import {
 } from '../../redux/campers/campersSelectors.js';
 import { toggleFavorite } from '../../redux/campers/campersSlice.js';
 
-import FormBook from '../../components/FormBook/FormBook.jsx';
-
 function FavoriteCampPage() {
   const favoriteIds = useSelector(selectFavoritesId);
   const isLoading = useSelector(selectLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const savedFavorites = loadFavoritesFromLocalStorage();
     savedFavorites.forEach(id => dispatch(toggleFavorite(id)));
   }, [dispatch]);
 
-  useEffect(() => {
-    saveFavoritesToLocalStorage(favoriteIds);
-  }, [favoriteIds]);
+  useEffect(() => {}, [favoriteIds]);
 
   //  списки камперів
   const campers = useSelector(state =>
@@ -37,7 +32,6 @@ function FavoriteCampPage() {
           <Loader />
         ) : (
           <>
-            <FormBook />
             <FavoriteCampList
               favoriteIds={favoriteIds}
               campers={campers || []}
