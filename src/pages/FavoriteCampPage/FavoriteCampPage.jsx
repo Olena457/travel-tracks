@@ -3,11 +3,9 @@ import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import css from './FavoriteCampPage.module.css';
 import Loader from '../../components/Loader/Loader.jsx';
-import {
-  selectFavoritesId,
-  selectLoading,
-} from '../../redux/campers/campersSelectors.js';
-import { toggleFavorite } from '../../redux/campers/campersSlice.js';
+import { selectLoading, selectFavoritesId } from '../../redux/selectors.js';
+import { deleteFavoriteById } from '../../redux/favorites/favoritesSlice.js';
+import CatalogListFavorite from './../../components/CatalogListFavorite/CatalogListFavorite.jsx';
 
 function FavoriteCampPage() {
   const favoriteIds = useSelector(selectFavoritesId);
@@ -15,12 +13,9 @@ function FavoriteCampPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    savedFavorites.forEach(id => dispatch(toggleFavorite(id)));
-  }, [dispatch]);
+    favoriteIds.forEach(id => dispatch(deleteFavoriteById(id)));
+  }, [dispatch, favoriteIds]);
 
-  useEffect(() => {}, [favoriteIds]);
-
-  //  списки камперів
   const campers = useSelector(state =>
     favoriteIds.map(id => state.campers.items.find(camper => camper.id === id))
   );
@@ -32,7 +27,7 @@ function FavoriteCampPage() {
           <Loader />
         ) : (
           <>
-            <FavoriteCampList
+            <CatalogListFavorite
               favoriteIds={favoriteIds}
               campers={campers || []}
             />

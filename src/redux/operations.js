@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axiosGetAll from '../api/axiosGetAll.js';
+import axiosGetOne from '../api/axiosGetOne.js';
+import axios from 'axios';
 
 export const fetchAll = createAsyncThunk(
   'campers/fetchAll',
@@ -19,28 +21,26 @@ export const fetchAll = createAsyncThunk(
     }
   }
 );
-// import axiosGetOne from '../api/axiosGetOne.js'
+export const fetchCamperById = createAsyncThunk(
+  'campers/fetchCamperById',
+  async (camperId, thunkAPI) => {
+    try {
+      const response = await axiosGetOne(camperId);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
-// export const fetchCamperById = createAsyncThunk(
-//   'campers/fetchCamperById',
-//   async (camperId, thunkAPI) => {
-//     try {
-//       const response = await axiosGetOne(camperId);
-//       return response;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
-// export const resetCampers = createAsyncThunk(
-//   'campers/resetCampers',
-//   async (_, thunkAPI) => {
-//     try {
-//       const response = await axiosGetOne();
-//       return response;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
+export const deleteFavoriteById = createAsyncThunk(
+  'campers/deleteCampers',
+  async (camperId, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/favorites/${camperId}`);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

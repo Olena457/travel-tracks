@@ -6,15 +6,14 @@ import Loader from './components/Loader/Loader.jsx';
 import './App.css';
 const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage.jsx'));
-const FavoriteCampPage = lazy(() =>
-  import('./pages/FavoriteCampPage /FavoriteCampPage .jsx')
-);
 const ShoweMorePage = lazy(() =>
   import('./pages/ShoweMorePage/ShoweMorePage.jsx')
 );
 const Features = lazy(() => import('./components/Features/Features.jsx'));
 const Reviews = lazy(() => import('./components/Reviews/Reviews.jsx'));
-import FavoriteCampPage from './pages/FavoriteCampPage/FavoriteCampPage';
+const FavoriteCampPage = lazy(() =>
+  import('./pages/FavoriteCampPage/FavoriteCampPage.jsx')
+);
 
 function App() {
   return (
@@ -28,7 +27,7 @@ function App() {
             <Route path="features" element={<Features />}></Route>
             <Route path="reviews" element={<Reviews />}></Route>
           </Route>
-          <Route path="/favorites[id]" element={<FavoriteCampPage />} />
+          <Route path="/favorites" element={<FavoriteCampPage />} />
         </Routes>
       </Suspense>
       <ToastNotification />

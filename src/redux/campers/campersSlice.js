@@ -48,10 +48,9 @@
 
 // export const campersReducer = campersSlice.reducer;
 // ____________________________________________________
+//
 // import { createSlice } from '@reduxjs/toolkit';
-// import { fetchCamperById, fetchCampers } from './campersApi.js';
-// import { createSlice } from '@reduxjs/toolkit';
-// import { fetchCamperById, fetchCampers, fetchAll } from '../operation.js';
+// import { fetchCamperById } from '../operation.js';
 
 // const campersSlice = createSlice({
 //   name: 'campers',
@@ -61,7 +60,7 @@
 //     total: 1,
 //     selectedCamper: null,
 //     favorites: 'favorites' || [],
-//     status: 'idle',
+//
 //   },
 //   reducers: {
 //     toggleFavorite: (state, action) => {
@@ -76,7 +75,7 @@
 //       } else {
 //         state.favorites = state.favorites.filter(fav => fav.id !== camperId);
 //       }
-//       localStorage.setItem('favorites', JSON.stringify(state.favorites));
+//
 //     },
 //   },
 //   extraReducers: builder => {
