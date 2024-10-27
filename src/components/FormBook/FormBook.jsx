@@ -15,8 +15,8 @@ function FormBook(data) {
   };
 
   function submitHandler(values) {
-    actions.resetForm();
-    toast.success('The order was successfully created');
+    toast('Reserved', { style: { backgroundColor: 'yellow' } });
+    resetForm();
   }
 
   const tomorrow = new Date();

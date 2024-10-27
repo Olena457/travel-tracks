@@ -11,9 +11,6 @@ const ShoweMorePage = lazy(() =>
 );
 const Features = lazy(() => import('./components/Features/Features.jsx'));
 const Reviews = lazy(() => import('./components/Reviews/Reviews.jsx'));
-const FavoriteCampPage = lazy(() =>
-  import('./pages/FavoriteCampPage/FavoriteCampPage.jsx')
-);
 
 function App() {
   return (
@@ -27,7 +24,6 @@ function App() {
             <Route path="features" element={<Features />}></Route>
             <Route path="reviews" element={<Reviews />}></Route>
           </Route>
-          <Route path="/favorites" element={<FavoriteCampPage />} />
         </Routes>
       </Suspense>
       <ToastNotification />

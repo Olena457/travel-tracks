@@ -3,7 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 import css from './Features.module.css';
 import Icon from '../Icon.jsx';
 
-function FeaturesFavorite() {
+function Features() {
   const { data } = useOutletContext();
 
   let form;
@@ -164,4 +164,4 @@ function FeaturesFavorite() {
   );
 }
 
-export default FeaturesFavorite;
+export default Features;

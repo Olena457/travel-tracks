@@ -1,12 +1,12 @@
 
 .mainContainer {
   display: flex;
-  flex-direction: column;
   min-width: 100%;
+  flex-direction: column;
   color: #f7f7f7;
   background-image: url('../../assets/Picture-1.jpg');
   background-position: center center;
-  background-attachment: fixed;
+ 
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -16,7 +16,7 @@
 .container {
   display: flex;
   margin-left: 80px;
-  margin-top: 210px;
+  margin-top: 310px;
   flex-direction: column;
   gap: 10px;
 }

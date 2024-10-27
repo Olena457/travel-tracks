@@ -54,9 +54,7 @@ function CatalogPage() {
             )}
           </>
         ) : (
-          <p className={css.notFoundErr}>
-            An error occurred while loading the catalog
-          </p>
+          <p className={css.notFoundErr}>Request not found,try again!</p>
         )}
       </div>
     </section>

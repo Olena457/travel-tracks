@@ -25,7 +25,7 @@ ol {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+  height: 100%;
  
 }
 
@@ -37,6 +37,7 @@ button {
 }
 
 a {
+  color:black;
   text-decoration: none;
 }
 a,
@@ -45,7 +46,6 @@ button {
 }
 
 button {
-  
   border: none;
   cursor: pointer;
 }

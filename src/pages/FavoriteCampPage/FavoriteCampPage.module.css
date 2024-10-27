@@ -1,8 +1,0 @@
-.wrapperFavoriteList {
-  display: flex;
-  gap: 48px;
-  justify-content: center;
-  overflow-y: auto;
-  max-height: 100vh;
-  padding: 38px 48px 50px 48px;
-}

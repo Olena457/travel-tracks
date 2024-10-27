@@ -1,7 +1,6 @@
-// import { filtersReducer } from './filters/filtersSlice.js';
 import { configureStore } from '@reduxjs/toolkit';
 import { camperReducer } from './slice.js';
-import { favoritesReducer } from '../redux/favorites/favoritesSlice.js';
+import { favoriteReducer } from '../redux/favorites/favoritesSlice.js';
 
 import {
   persistReducer,
@@ -18,7 +17,7 @@ import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
   campers: camperReducer,
-  favorite: favoritesReducer,
+  favorite: favoriteReducer,
 });
 
 const persistConfig = {

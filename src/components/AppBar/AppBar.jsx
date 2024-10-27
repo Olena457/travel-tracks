@@ -26,16 +26,6 @@ export const AppBar = () => {
       >
         Catalog
       </NavLink>
-      <NavLink
-        to="/favorites"
-        className={({ isActive }) => {
-          return isActive && location.pathname === '/favorites'
-            ? css.active
-            : undefined;
-        }}
-      >
-        Favorites
-      </NavLink>
     </header>
   );
 };

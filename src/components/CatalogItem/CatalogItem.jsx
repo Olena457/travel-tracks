@@ -1,25 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { memo } from 'react';
 import css from './CatalogItem.module.css';
-import { changeFavorite } from '../../redux/favorites/favoritesSlice.js';
+import {
+  changeFavorite,
+  deleteFavorite,
+} from '../../redux/favorites/favoritesSlice.js';
 import Icon from '../Icon.jsx';
-import { selectFavoritesId } from '../../redux/selectors.js';
 
-function CatalogItem({ data }) {
+function CatalogItem({ data, isFavorite }) {
   const dispatch = useDispatch();
-  const favoriteIds = useSelector(selectFavoritesId);
-  const isFavorite = favoriteIds.includes(data.id);
 
-  // function changeHandler(event) {
-  //   const isChecked = event.target.checked;
-  //   if (isChecked) {
-  //     dispatch(changeFavorite(data.id));
-  //   } else {
-  //     dispatch(deleteFavorite(data.id));
-  //   }
-  // }
-  function changeHandler() {
-    dispatch(changeFavorite(data));
+  function changeHandler(event) {
+    const isChecked = event.target.checked;
+    if (isChecked) {
+      dispatch(changeFavorite(data.id));
+    } else {
+      dispatch(deleteFavorite(data.id));
+    }
   }
 
   return (

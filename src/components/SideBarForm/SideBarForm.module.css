@@ -74,8 +74,8 @@
   stroke: black;
  }
 
-.radio,
-.checkbox {
+
+.checkbox,.radio {
   visibility: hidden;
   position: absolute;
   pointer-events: none;
@@ -97,6 +97,15 @@
   transition: all 250ms ease-in-out;
 }
 
+
+
+.label:has(.checkbox:checked) {
+    border-color: rgb(228, 72, 72);
+}
+
+.radioLabel:has(.radio:checked) {
+    border-color: rgb(228, 72, 72);
+}
 .btnSearch {
   width: 166px;
   height: 56px;
