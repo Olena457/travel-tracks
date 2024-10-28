@@ -1,6 +1,6 @@
 # React + Vite
 
-##TravelTracks<br/>
+## TravelTracks<br/>
 
 <img src=".../../src/assets/Picture-1.jpg" alt="Travel Tracks" wind="390" height="290"/><br/>
 Step into the world of **TravelTracks**—your top destination for renting premier
@@ -13,7 +13,7 @@ fast online booking process.<br/> -**Selection of options:** Add extra features
 like TV, shower, kitchen, and more.<br/> -**User Reviews and Features:** Read
 reviews from other customers to help you make the best choice.<br/>
 
-**###The application contains two pages:**<br/> **_1.Home Page:_**Provides a
+**### The application contains two pages:**<br/> **_1.Home Page:_**Provides a
 general overview of the services offered by the company.<br/> **_2.Catalog
 Page:_** Displays a catalog of campers with various configurations, which the
 user can filter by location, equipment, and type.
